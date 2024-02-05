@@ -1,0 +1,75 @@
+.col-md-8 {
+  flex: 0 0 auto;
+  width: 91.666667%;
+}
+.g-0{
+  background-color: white;
+  border: none;
+}
+
+.containerr {
+  max-width: 500px;
+  margin: 43px auto;
+  background-color: #fff;
+  padding: 20px;
+  border-radius: -33px;
+  box-shadow: 0 0 10px rgb(247 0 0 / 10%);
+}
+.createprop{
+  color: #333;
+}
+
+label {
+  display: block;
+  margin-bottom: 1px;
+  color: #555;
+}
+
+input,
+textarea,
+button {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 16px;
+  box-sizing: border-box;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+button {
+  margin-top: 10px;
+  background-color: #007bff;
+  color: #fff;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: bold;
+  transition: background-color 0.3s;
+}
+
+.delbtn{
+  background-color:#cd4646;
+}
+.editbtn{
+  background-color: #658eb9;
+}
+
+.txtnoprop{
+  text-align: center;
+  /* background-color: #fff; */
+  color: #c2b7b7;
+  display: none;
+ 
+}
+
+.btncreateblog{
+  width: 120px;
+  margin: 0px 152px;
+  height: 47px;
+}
+
+
+@media (max-width: 768px) {
+  .btncreateblog{
+    margin-bottom: 5px;
+  }
+}

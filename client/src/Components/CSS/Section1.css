@@ -1,0 +1,143 @@
+.maindiv {
+    width: 90%;
+    height: 585px;
+    margin-top: 15px;
+    background-image: url("../Images//newblogimg.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    opacity: 3.9;
+    margin-left: auto;
+    margin-right: auto; 
+}
+
+
+.box2 {
+    padding: 10px;
+}
+
+/* Media Query for Tablets */
+@media (max-width: 768px) {
+
+    .maindiv {
+        height: 500px;
+        width: 80%;
+        margin-top: 5px;
+    }
+    .img-fluid{
+        margin-left: 143px;
+        margin-top: 27px;
+    }
+
+}
+
+/* Media Query for Mobiles */
+@media (max-width: 576px) {
+    .maindiv {
+        height: 380px;
+        width: 98%;
+        margin-top: 5px;
+    }
+    .img-fluid{
+       
+     margin-left: 70px;
+     margin-top: 13px;
+        
+    }
+
+    .main{
+        margin: 5px;
+    }
+    
+}
+
+.img-fluid{
+    margin-left: 62px;
+}
+
+
+
+
+
+
+
+
+
+
+/* section2 css */
+.row {
+    /* border: 1px solid blue; */
+    box-sizing: border-box;
+    padding: 10px 0px;
+    display: flex;
+    justify-content: center;
+}
+
+.bx {
+    border: 1px solid black;
+    /* margin: 1px; */
+    height: 220px;
+    margin: 5px 25px;
+    /* border-radius: 1px; */
+    /* background-color: red; */
+    color: white;
+    border: none;
+    padding: 10px;
+
+}
+
+.main {
+    display: flex;
+    justify-content: center;
+    margin-top: 17px;
+    margin-bottom: 17px;
+}
+img{
+    height: 200px;
+    width: 200px;
+    margin-left: 20px;
+}
+
+.x{
+    /* border: 1px solid red; */
+    height: 300px;
+}
+
+/* @media(max-width:582){
+    .row{
+        margin: 10px;
+    }
+    .blogheading{
+        color: white;
+        font-size: 25px;
+        font-weight:900;
+    }
+    
+} */
+h6{
+    text-align: center;
+
+}
+.txt{
+    text-align: center;
+}
+.howitwork{
+    text-align: center;
+}
+
+.x {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+.homepagebtn{
+    width: 178px;
+    height: 65px;
+    background-color: red;
+    font-size: 25px;
+    border: none;
+    border-radius: inherit;
+
+}
+
