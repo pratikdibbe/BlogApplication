@@ -15,6 +15,6 @@ Welcome to our MERN (MongoDB, Express.js, React.js, Node.js) stack blog applicat
 - Express.js: Backend framework for building the API.
 - React.js: Frontend library for creating an interactive user interface.
 - Node.js: Runtime environment for executing server-side code.
-- [Other Dependencies]: List any additional libraries or tools used in your project.
+
 
 
