@@ -4,11 +4,11 @@ const blogSchema = require('../model/blog_schema');
 const CreateNewBlog = async (req, res) => {
     try {
 
-        const { title, description, blogadder, auther } = req.body;
+        const { title, description, blogadder, auther , image , firebaseImageUrl    } = req.body;
 
         // const response = await blogSchema.create({ title , description, blogadder,  auther});
         const response = await new blogSchema({ 
-          title , description, blogadder, auther
+          title , description , image , firebaseImageUrl, blogadder, auther
         }).save();
 
         // console.log('ppppppp', response);

@@ -5,18 +5,14 @@ const router = express.Router();
 const
 { signupController ,
   loginController,
-  authtokenController
 
 } = require('../controller/authcontroller')
-
-
 
 
 
 // LOGIN AND SIGNUP ROUTE
 router.post("/signup", signupController);
 router.post("/login", loginController);
-router.post("/auth", authtokenController);
 
 module.exports = router;
 

@@ -33,9 +33,11 @@ const signupController = async (req, res) => {
       // check if email exists in DB!
       const existingUser = await userModel.findOne({ email: email }).exec();
       if (existingUser) {
-        console.log("Email Already Registered");
+
+        console.log("Email Already Registered"); 
         res.status(400).json({ message: "Email Already Registered" });
         return false;
+
       }
   
       // secure password
@@ -95,6 +97,7 @@ const loginController = async (req, res) => {
             expiresIn: '7d',
         });
 
+
         res.status(200).json({
             success: true,
             message: 'Login Successfully',
@@ -105,6 +108,7 @@ const loginController = async (req, res) => {
                 
             },
             token,
+            
         });
     } catch (error) {
         console.log(error);
@@ -117,36 +121,9 @@ const loginController = async (req, res) => {
 };
 
 
-// TOKEN CHECK CONTROLLER
-const authtokenController = async (req, res) => {
-  const { token } = req.body;
-
-  if (token) {
-    try {
-      const decode = jwt.verify(token, process.env.JWT_LOGIN_TOKEN);
-
-      res.json({
-        auth: true,
-        data: decode,
-      });
-    } catch (error) {
-      res.json({
-        auth: false,
-        data: error.message,
-      });
-    }
-  } else {
-    res.json({
-      auth: false,
-      data: "No Token Found in request",
-    });
-  }
-};
-
 
 // EXPORT ALL MODULES
 module.exports = {
   signupController,
   loginController,
-  authtokenController,
 };
