@@ -62,9 +62,10 @@ button {
 }
 
 .btncreateblog{
-  width: 120px;
+
+  width: 86px;
   margin: 0px 152px;
-  height: 47px;
+  height: 40px;
 }
 
 
@@ -72,4 +73,30 @@ button {
   .btncreateblog{
     margin-bottom: 5px;
   }
+  .mb-3{
+    margin-left: 75px;
+  }
 }
+
+@media (max-width: 400px) {
+  .g-0{
+    background-color: white;
+    border: none;
+    width: auto;
+  }
+  .mb-3{
+    margin: inherit;
+  }
+  
+  .img_blog{
+    height: 206px;
+    margin-bottom: 12px;
+    margin-left: inherit;
+    border-radius: inherit;
+    /* border-radius: inherit; */
+  }
+
+
+  
+}
+

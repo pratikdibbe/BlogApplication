@@ -5,7 +5,9 @@ import { jwtDecode } from "jwt-decode";
 import toast from "react-hot-toast";
 import "../CSS/Blog.css";
 
+
 export default function Blog() {
+
 
 
   const [title, setTitle] = useState("");
@@ -14,6 +16,8 @@ export default function Blog() {
 
   const [auther, setAuther] = useState(""); 
 
+  const [imageFile, setImageFile] = useState(null);
+
   const [blogs, setBlogs] = useState([]);
 
   const [userEmail, setUserEmail] = useState(null);
@@ -21,6 +25,7 @@ export default function Blog() {
   const [decoded, setDecoded] = useState(null);
 
   const [selectedBlogId, setSelectedBlogId] = useState(null);
+
 
 
   const handleTitleChange = (e) => {
@@ -36,6 +41,29 @@ export default function Blog() {
   const handleAutherChange = (e) => {
     setAuther(e.target.value);
   };
+
+   // Function to handle image change
+  const handleImageChange = (e) => {
+    setImageFile(e.target.files[0]);
+  };
+  
+
+  // Function to upload image to Firebase
+  const uploadImg = async (file) => {
+    try {
+        const formData = new FormData();
+        formData.append("image", file);
+        const response = await axios.post(`${baseURL}/api/v1/img/upload`, formData);
+        if (response.status === 200) {
+            return response.data.imageUrl;
+        } else {
+            console.error("Failed to upload image");
+        }
+    } catch (error) {
+        console.error("Error uploading image:", error);
+    }
+  };
+
 
 
   const getUserBlogs = () => {
@@ -73,14 +101,18 @@ export default function Blog() {
   }, []);
 
 
+
+
   // HNADLE CREATE BLOG API CODE
   const handleCreateBlog = async () => {
     try {
-
+      
+      const imageUrl = await uploadImg(imageFile);
       const response = await axios.post(`${baseURL}/api/v1/blog/createblog`, {
         title,
         description,
         blogadder: decoded.email,
+        firebaseImageUrl: imageUrl,
         auther,
       });
 
@@ -91,47 +123,57 @@ export default function Blog() {
         setTitle("");
         setDescription("");
         setAuther(""); 
+        setImageFile(null);
         getBlogList();
+        
       } else {
         toast.error("Something went wrong");
       }
     } catch (error) {
       console.error("Error creating blog:", error);
     }
-  };
+};
+
 
   // HANDLE UPDATE BLOG API CODE
-  const handleUpdateBlog = async () => {
-    try {
+  
+const handleUpdateBlog = async () => {
+  try {
+    let imageUrl = null; 
 
-      const response = await axios.put(
-        `${baseURL}/api/v1/blog/updateblog/${selectedBlogId}`,
-        {
-          title,
-          description,
-          auther, 
-        }
-      );
-
-      const data = response.data;
-      toast.success("Blog Updated Successfully");
-
-      if (data.success) {
-        setTitle("");
-        setDescription("");
-        setAuther(""); 
-        setSelectedBlogId(null);
-        getBlogList();
-
-      } else {
-
-        toast.error("Failed to update blog.");
-      }
-
-    } catch (error) {
-      console.error("Error updating blog:", error);
+    // Check if a new image is selected
+    if (imageFile) {
+      imageUrl = await uploadImg(imageFile); 
     }
-  };
+
+    const response = await axios.put(
+      `${baseURL}/api/v1/blog/updateblog/${selectedBlogId}`,
+      {
+        title,
+        description,
+        auther, 
+        firebaseImageUrl: imageUrl, 
+      }
+    );
+
+    const data = response.data;
+    toast.success("Blog Updated Successfully");
+
+    if (data.success) {
+      setTitle("");
+      setDescription("");
+      setAuther("");
+      setSelectedBlogId(null);
+      // setImageFile(null); 
+      getBlogList();
+    } else {
+      toast.error("Failed to update blog.");
+    }
+  } catch (error) {
+    console.error("Error updating blog:", error);
+  }
+};
+
 
   // HANDLE DELETE BLOG API CODE
   const handleDeleteBlog = async (BlogId) => {
@@ -163,7 +205,7 @@ export default function Blog() {
       setDescription(selectedBlog.description);
       setAuther(selectedBlog.auther); 
       setSelectedBlogId(BlogId);
-
+      // setImageFile(selectedBlog.firebaseImageUrl); 
     }
   };
 
@@ -196,6 +238,14 @@ export default function Blog() {
             onChange={handleDescriptionChange}
           />
         </div>
+
+        {/* Imag  */}
+          <div>
+            <label htmlFor="image">Choose Image:</label>
+            <input type="file" accept="image/*" onChange={handleImageChange} />
+          </div>
+
+
 
 
         <div>
@@ -243,6 +293,19 @@ export default function Blog() {
               <div className="col-md-8">
 
                 <div className="card-body">
+
+                <img
+                     className="card-img-top img-fluid img_Blog"
+                     style={{
+                              width: "513px",
+                              height: window.innerWidth < 400 ? "206px" : "282px", // Set height based on screen width
+                              marginBottom: "12px",
+                              borderRadius: "inherit",
+                              marginLeft: "inherit" // Added margin-left
+                            }}
+                            src={singleBlog.firebaseImageUrl}
+                            alt="blogimg"
+                />
 
                   <h5 className="card-title fs-2 text">{singleBlog.title}</h5>
                   <hr />

@@ -33,7 +33,7 @@ export default function Section1() {
 
 
                 <div className="col-md-3 mx-2 x">
-                    <img src={first} alt="" className='img-fluid' />
+                    <img src={first} alt="" className='img-fluid img-fluid_blog' />
 
                     <h6>Write Blogs </h6>
                     <p className='txt'>Discover captivating stories and insightful articles on our diverse blog</p>
@@ -41,7 +41,7 @@ export default function Section1() {
 
 
                 <div className="col-md-3 mx-2 x">
-                    <img src={imgsecond} alt="" className='img-fluid'/>
+                    <img src={imgsecond} alt="" className='img-fluid img-fluid_blog'/>
 
 
                     <h6>See other's Blog</h6>
@@ -50,7 +50,7 @@ export default function Section1() {
 
 
                 <div className="col-md-3 mx-2 x">
-                    <img src={imgthird} alt="" className='img-fluid' />
+                    <img src={imgthird} alt="" className='img-fluid img-fluid_blog' />
                     <h6>Post Blog</h6>
                     <p className='txt'> Dive into diverse posts, spark conversations, engage enthusiasts. </p>
                 </div>

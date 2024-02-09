@@ -1,5 +1,5 @@
 .maindiv {
-    width: 90%;
+    width: 99%;
     height: 585px;
     margin-top: 15px;
     background-image: url("../Images//newblogimg.jpg");
@@ -27,7 +27,7 @@
         width: 80%;
         margin-top: 5px;
     }
-    .img-fluid{
+    .img-fluid_photo{
         margin-left: 143px;
         margin-top: 27px;
     }
@@ -41,7 +41,7 @@
         width: 98%;
         margin-top: 5px;
     }
-    .img-fluid{
+    .img-fluid_photo{
        
      margin-left: 70px;
      margin-top: 13px;
@@ -54,18 +54,16 @@
     
 }
 
-.img-fluid{
+.img-fluid_photo{
     margin-left: 62px;
 }
 
-
-
-
-
-
-
-
-
+.img-fluid {
+    max-width: 100%;
+    height: auto;
+    margin-left: 62px;
+    margin-top: 21px;
+}
 
 /* section2 css */
 .row {
@@ -141,3 +139,33 @@ h6{
 
 }
 
+
+
+@media (max-width: 790px) {
+    
+.img-fluid {
+    max-width: 100%;
+    height: auto;
+    margin-left: 154px;
+    margin-top: 21px;
+}
+.maindiv{
+    width: 99%;
+  }
+
+  .x{
+    width: 500px;
+  }
+
+}
+
+
+@media (max-width: 400px) {
+    .img-fluid {
+      max-width: 100%;
+      height: auto;
+      margin-left: 70px;
+      margin-top: 21px;
+    }
+  }
+  

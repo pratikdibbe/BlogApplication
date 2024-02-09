@@ -13,15 +13,14 @@ export default function Homepage() {
   }
 
 
-
   return (
+    
     <div>
 
       <div> 
         <Section1/>
-
         {decoded == null ? (
-          <h3 className='plzlogin'></h3>
+          <h3 className='plzloginfirst'></h3>
                   ) : (
               <AllBlogSection/>
             )}

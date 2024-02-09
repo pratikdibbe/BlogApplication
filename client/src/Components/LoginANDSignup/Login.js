@@ -31,7 +31,7 @@ export default function Login() {
       toast.success("Login successful");
       navigate("/");
       // alert("login sucessfull");
-      window.location.reload();
+      // window.location.reload();
 
       // localStorage.setItem("token", response.data.token);
 
